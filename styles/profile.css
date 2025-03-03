@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+*{
+    font-family: "Poppins", sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+header {
+    background-color: aliceblue;
+    width: 100%;
+    position: fixed;
+    top: 0; /* Ensures it stays at the top */
+    z-index: 9999; /* Increase the z-index */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3em 11em;
+    background: url("../img/img.jpg");
+}
+header * {
+    margin: 0; 
+}
+header.scrolled {
+    background:aliceblue;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+  }
+
+  .logo:hover {
+    transform: scale(1.05);
+  }
+
+  .logo .bracket {
+    color: #60A5FA;
+    margin: 0 2px;
+  }
+
+  .logo .text {
+    margin: 0 2px;
+  }
+  .logo.scrolled
+  {
+    color: #3a6cf4;
+  }
+
+#navigation a{
+    color:#3a6cf4;
+    text-decoration: none;
+    margin-left: 1.1em;
+    font-size: 1.2em;
+    font-weight: 500;
+    border-color: aliceblue;
+
+}
+
+#navigation a:hover{
+    color:aliceblue
+
+}
+header.scrolled #navigation a:hover {
+    color:blueviolet;
+} 
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 8em;
+    padding-bottom: 6em; 
+}
+
+.profile-card {
+    display: flex;
+    background: #fff;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    width: 900px;
+    max-width: 95%;
+
+ 
+}
+
+.left-section {
+    background: linear-gradient(45deg, #0056b3, #498fd8);
+    color: white;
+    padding: 40px;
+    text-align: center;
+    flex: 1;
+    position: relative;
+}
+
+.left-section .profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 5px solid white;
+}
+
+.left-section .name {
+    font-size: 2rem;
+    margin: 10px 0;
+}
+
+.left-section .title {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.left-section .edit-link {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+}
+
+.left-section .delete-link {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+}
+
+
+
+.right-section {
+    padding: 40px;
+    flex: 2;
+}
+
+.right-section h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.right-section p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.social-links {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.social-links .icon {
+    width: 35px;
+    height: 35px;
+}
+
+footer {
+    background-color: #000016;
+    color: #fff;
+    padding: 2em 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-title {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+.footer-title span {
+    color: #3a6cf4;
+}
+
+.footer .social-icons a {
+    font-size: 1.3em;
+    margin-right: 12px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer .social-icons a:hover {
+    color: #3a6cf4;
+}

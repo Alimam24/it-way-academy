@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles/update-info.css">
+    <title>IT Way Courses</title>
+</head>
+
+
+<body>
+    <div class="wrapper">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <span class="text">I</span>
+                <span class="bracket">&lt;</span>
+                <span class="text">WAY COURSES</span>
+                <span class="bracket">&gt;</span>
+                <span class="text">T</span>
+              </a>
+        </nav>
+        <!------------------- Registration form ------------------->
+        <div class="form-box">
+            <div class="register-container" id="register">
+                <form action="php/update-handler.php" method="post" enctype="multipart/form-data">
+                    <div class="top">
+                        <header>Update your informations</header>
+                    </div>
+                    <div class="two-forms">
+                        <div class="input-box">
+                            <input type="text" class="input-field" placeholder="Firstname" name="Firstname">
+                            <i class="bx bx-user"></i>
+                        </div>
+                        <div class="input-box">
+                            <input type="text" class="input-field" placeholder="Lastname" name="Lastname">
+                            <i class="bx bx-user"></i>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Email" name="Email">
+                        <i class="bx bx-envelope"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" class="input-field" placeholder="Password" name="Password">
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="date" class="input-field" name="Birthdate">
+                        <i class="bx bx-calendar"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Phone Number" name="PhoneNumber">
+                        <i class="bx bx-phone"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="file" class="input-field" name="ProfilePhoto" accept="image/*">
+                        <i class="bx bx-camera"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="submit" class="submit" value="update">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+<style>
+    /* POPPINS FONT */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background: url("img/img.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        overflow: hidden;
+    }
+
+    .wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: rgba(39, 39, 39, 0.4);
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        display: flex;
+        justify-content: left;
+        padding: 0px 30px;
+        width: 100%;
+        height: 100px;
+        line-height: 100px;
+        background: linear-gradient(rgba(39, 39, 39, 0.6), transparent);
+        z-index: 100;
+    }
+
+    .nav a {
+        text-decoration: none;
+    }
+
+    .nav-logo p {
+        color: white;
+        font-size: 25px;
+        font-weight: 600;
+    }
+
+    .form-box {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 512px;
+        height: auto;
+        overflow: hidden;
+        z-index: 2;
+    }
+
+    .register-container {
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+    }
+
+    header {
+        color: #fff;
+        font-size: 30px;
+        text-align: center;
+        padding: 10px 0 30px 0;
+    }
+
+    .two-forms {
+        display: flex;
+        gap: 20px;
+    }
+
+    .input-field {
+        font-size: 15px;
+        background: rgba(255, 255, 255, 0.2);
+        color: #fff;
+        height: 50px;
+        width: 100%;
+        padding: 0 10px 0 45px;
+        border: none;
+        border-radius: 30px;
+        outline: none;
+        transition: .2s ease;
+    }
+
+    .input-field:hover,
+    .input-field:focus {
+        background: rgba(255, 255, 255, 0.25);
+    }
+
+    ::-webkit-input-placeholder {
+        color: #fff;
+    }
+
+    .input-box i {
+        position: relative;
+        top: -35px;
+        left: 17px;
+        color: #fff;
+    }
+
+    .submit {
+        font-size: 15px;
+        font-weight: 500;
+        color: black;
+        height: 45px;
+        width: 100%;
+        border: none;
+        border-radius: 30px;
+        outline: none;
+        background: rgba(255, 255, 255, 0.7);
+        cursor: pointer;
+        transition: .3s ease-in-out;
+    }
+
+    .submit:hover {
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    @media only screen and (max-width: 540px) {
+        .wrapper {
+            min-height: 100vh;
+        }
+
+        .form-box {
+            width: 100%;
+        }
+
+        .register-container {
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .register-container .two-forms {
+            flex-direction: column;
+            gap: 0;
+        }
+    }
+</style>
+
+</html>
+
+
+
