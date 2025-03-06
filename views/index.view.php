@@ -1,45 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">   
-    <link rel="stylesheet" href="styles/homepage.css">
-    <title>IT Way Courses</title>
-</head>
-<body>
-    <header>
-        <a href="index.html" class="logo">
-            <span class="text">I</span>
-            <span class="bracket">&lt;</span>
-            <span class="text">WAY COURSES</span>
-            <span class="bracket">&gt;</span>
-            <span class="text">T</span>
-          </a>
-        <nav id="navigation">
-            <a href="login-register.php">LOGIN</a>
-            <a href="php/courses.php">COURSES</a>
-            <a href="about.html" target="_blank">ABOUT</a>
-            <a href="contact.html" target="_blank">CONTACT</a>
-        </nav>
-    </header>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const header = document.querySelector("header");
-            const logo = document.querySelector(".logo");
-            window.addEventListener("scroll", function () {
-                if (window.scrollY > 50) { 
-                    header.classList.add("scrolled");
-                    logo.classList.add("scrolled");
-                } else {
-                    header.classList.remove("scrolled");
-                    logo.classList.remove("scrolled");
-                }
-            });
-        });
-    </script>
+<?php require('partials/head.php') ?>
+
+<?php require('partials/nav.php') ?>
+
+<link rel="stylesheet" href="views/styles/homepage.css">
+
+   
     <section id="main">
       <h2>Welcome to IT Way Academy<br><br><span>Your Gateway to Online IT Mastery</span></h2>
       <h3>"Empower your future with expert-led courses designed to elevate your skills."</h3><br><br><br>
@@ -106,7 +71,7 @@
                 </div>
             </a>
           </div>
-          <a href="php/courses.php"><btn class="course-btn">View all courses</btn></a>
+          <a href="courses"><btn class="course-btn">View all courses</btn></a>
             </div>
    <br><br><br><br><br>
     <section id="Contact">
@@ -131,15 +96,4 @@
         </div>
     </section>
     
-    <footer class="footer">
-        <p class="footer-title">Copyrights @ <span>IT Way Courses</span></p>
-        <div class="social-icons">
-            <a href="https://www.linkedin.com/in"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com"><i class="fab fa-github"></i></a>
-            <a href="#instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#facebook"><i class="fab fa-facebook"></i></a>
-        </div>
-    </footer>
-
-</body>
-</html>
+    <?php require('partials/footer.php') ?>

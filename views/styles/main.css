@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    font-family: "Poppins", sans-serif;
+    
+    scroll-behavior: smooth;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures footer is always pushed down */
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    flex: 1; /* Pushes the footer to the bottom */
+    padding: 120px 20px; /* Adjust top padding for fixed navbar */
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    background: aliceblue;
+    padding: 1000px 0;
+}
+
+footer {
+    background-color: #000016;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
