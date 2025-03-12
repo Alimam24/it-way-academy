@@ -1,8 +1,6 @@
 <?php
 
 return [
-    'basePath'=> '/E-learning%20platform',
-
     'database' => [
         'host' => 'localhost',
         'port' => 3306,

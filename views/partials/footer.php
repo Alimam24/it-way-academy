@@ -1,5 +1,5 @@
   
-   <link rel="stylesheet" href="views/styles/headFN.css">
+   <link rel="stylesheet" href=<?=style('headFN.css')?>>
    <footer class="footer">
         <p class="footer-title">Copyrights @ <span>IT Way Courses</span></p>
         <div class="social-icons">

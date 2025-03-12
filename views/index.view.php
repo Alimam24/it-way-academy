@@ -1,14 +1,14 @@
-<?php require('partials/head.php') ?>
+<?php view('partials/head.php') ?>
 
-<?php require('partials/nav.php') ?>
+<?php view('partials/nav.php') ?>
 
-<link rel="stylesheet" href="views/styles/homepage.css">
+<link rel="stylesheet" href=<?=style('homepage.css')?>>
 
    
     <section id="main">
       <h2>Welcome to IT Way Academy<br><br><span>Your Gateway to Online IT Mastery</span></h2>
       <h3>"Empower your future with expert-led courses designed to elevate your skills."</h3><br><br><br>
-      <a href="#pop_courses">
+      <a href="profile/?first=walid&last=alimam">
           <btn class="course-btn">Explore Our Courses</btn>
       </a><br><br>
       <div id="icons">
@@ -28,7 +28,7 @@
         Our Popular Courses
         </div>
         <div class="course-container">
-            <a href="php/viewcourse.php?id=1" class="course-card">
+            <a href="courses/infos?id=1" class="course-card">
               <img src="courses_img/9.jpg" alt="Course Image" class="course-image">
               <div class="course-info">
                 <div class="course-meta">
@@ -96,4 +96,4 @@
         </div>
     </section>
     
-    <?php require('partials/footer.php') ?>
+    <?php view('partials/footer.php') ?>

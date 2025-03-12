@@ -1,12 +1,12 @@
 <?php
 
-$config = require('config.php');
-$db = new Database($config['database']);
+$config = require base_path('config.php');
+$db = new Core\Database($config['database']);
 
-$infos= $db->query('SELECT title, students, duration, rating, reviews, price,image_url, inst_name,inst_field, c_description  FROM courses WHERE id = :id', ['id' => $_GET['id']])->fetch();
+$infos= $db->query('SELECT title, students, duration, rating, reviews, price,image_url, inst_name,inst_field, c_description  FROM courses WHERE id = :id', ['id' => $_GET['id']])->findOrFail();
 
 
-require 'views/courseInfos.view.php';
+view('courses/infos.view.php',$infos);
 
 
 

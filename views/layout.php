@@ -1,15 +1,21 @@
-<?php require "views/partials/head.php"; ?>
-<link rel="stylesheet" href="views/styles/main.css">
-<link rel="stylesheet" href="views/styles/headFN.css">
+<?php view('partials/head.php'); ?>
+<link rel="stylesheet" href=<?= style('main.css') ?>>
+<link rel="stylesheet" href=<?= style('headFN.css') ?>>
 
-<body>
-    <?php require "views/partials/nav.php"; ?>
 
-    <main class="content">
-        <?php require $content; ?> 
-        <!-- dynamically include page content -->
-    </main>
+<?php view('partials/nav.php') ?>
 
-    <?php require "views/partials/footer.php"; ?>
-</body>
-</html>
+<main class="content">
+    <link rel="stylesheet" href=<?= style('alert.css') ?>>
+    <div class="container">
+        <div class="icon">
+            <?=$icon?> <!-- Unicode for a warning sign -->
+        </div>
+        <h1><?=$msg ?></h1>
+        <p><?=$exp?></p>
+        <a href=<?=$action['href'] ?> class="btn"><?=$action['text'] ?></a>
+
+    </div>
+
+</main>
+<?php view('partials/footer.php') ?>

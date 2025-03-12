@@ -137,6 +137,13 @@ header.scrolled #navigation a:hover {
     font-size: 1.5rem;
     color: white;
     text-decoration: none;
+
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    
+
 }
 
 

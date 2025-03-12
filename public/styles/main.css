@@ -15,7 +15,9 @@ body {
 
 .content {
     flex: 1; /* Pushes the footer to the bottom */
-    padding: 120px 20px; /* Adjust top padding for fixed navbar */
+    padding:100px 0; /* Adjust top padding for fixed navbar */
+    /* padding-top: ; */
+    
 }
 
 header {
