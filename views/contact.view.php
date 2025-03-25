@@ -4,7 +4,6 @@
 
 
 <?php view('partials/nav.php') ?>
-
 <main class="content">
 
     <div class="bg-aliceblue min-h-screen flex items-center justify-center p-6">
@@ -36,30 +35,88 @@
 
             <!-- Right Section (Form) -->
             <div class="bg-[#000016] text-white p-8 rounded-xl">
-                <form class="space-y-5">
+                <form method='post' action='/contact' class="space-y-5">
                     <div>
-                        <label class="block text-sm font-medium">Full Name</label>
-                        <input type="text" placeholder="Full Name" class="w-full mt-1 p-3 rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-[#3a6cf4]">
+
+                        <label
+                            for="firstn"
+                            class="block text-sm font-medium">First Name</label>
+
+                        <input
+                            type="text"
+                            name='firstn'
+                            placeholder="First Name"
+                            value='<?= $_POST['firstn'] ?? '' ?>'
+                            class="w-full mt-1 p-3 rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-[#3a6cf4]">
+
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium">Email Address</label>
-                        <input type="email" placeholder="Email Address" class="w-full mt-1 p-3 rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-[#3a6cf4]">
+                        <label
+                            for="lastn"
+                            class="block text-sm font-medium">Last Name</label>
+
+                        <input
+                            type="text"
+                            name="lastn"
+                            placeholder="Last Name"
+                            value='<?= $_POST['lastn'] ?? '' ?>'
+                            class="w-full mt-1 p-3 rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-[#3a6cf4]">
+
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium">Phone Number</label>
-                        <input type="tel" placeholder="Phone Number" class="w-full mt-1 p-3 rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-[#3a6cf4]">
+                        <label
+                            for="email"
+                            class="block text-sm font-medium">Email Address</label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Email Address"
+                            value='<?= $_POST['email'] ?? '' ?>'
+                            class="w-full mt-1 p-3 rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-[#3a6cf4]">
+
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium">Location</label>
-                        <input type="text" placeholder="Location" class="w-full mt-1 p-3 rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-[#3a6cf4]">
+                        <label
+                            for="phone"
+                            class="block text-sm font-medium">Phone Number</label>
+
+                        <input
+                            type="tel"
+                            name="phone"
+                            placeholder="Phone Number"
+                            value='<?= $_POST['phone'] ?? '' ?>'
+                            class="w-full mt-1 p-3 rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-[#3a6cf4]">
+
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium">What Expertise You're Interested In</label>
-                        <select class="w-full mt-1 p-3 rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-[#3a6cf4]">
+                        <label
+                            for="country"
+                            class="block text-sm font-medium">Country</label>
+
+                        <input
+                            type="text"
+                            name="country"
+                            placeholder="where do you live?"
+                            value='<?= $_POST['country'] ?? '' ?>'
+                            class="w-full mt-1 p-3 rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-[#3a6cf4]">
+
+                    </div>
+
+                    <div>
+                        <label
+                            for="expertise"
+                            class="block text-sm font-medium">What expertise are you asking for?</label>
+
+                        <select
+                            name="expertise"
+                            value='<?= $_POST['expertise'] ?? '' ?>'
+                            class="w-full mt-1 p-3 rounded-lg border border-gray-300 text-black focus:ring-2 focus:ring-[#3a6cf4]">
+
                             <option value="">Select</option>
                             <option value="programming">Programming</option>
                             <option value="AI">AI</option>
@@ -68,16 +125,32 @@
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium">Tell Us About Your Study</label>
-                        <textarea placeholder="Leave your message here" class="w-full mt-1 p-3 rounded-lg border border-gray-300 text-black h-32 resize-none focus:ring-2 focus:ring-[#3a6cf4]"></textarea>
+                        <label
+                            for="content"
+                            class="block text-sm font-medium">Message</label>
+
+                        <textarea
+                            name="content"
+                            placeholder="Leave your message here"
+                            class="w-full mt-1 p-3 rounded-lg border border-gray-300 text-black h-32 resize-none focus:ring-2 focus:ring-[#3a6cf4]"><?= $_POST['content'] ?? '' ?>
+                    </textarea>
                     </div>
 
-                    <button type="submit" class="w-full bg-[#3a6cf4] hover:bg-blue-600 text-white py-3 rounded-lg font-semibold flex justify-center items-center gap-2">
-                        SUBMIT →
+                    <?php if (isset($errors)) : ?>
+                        <div class="text-red-500 text-xs mt-0 mb-0">
+                            <?php foreach ($errors as $error): ?>
+                                <p>* <?= htmlspecialchars($error) ?></p>
+                            <?Php endforeach; ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <button
+                        type="submit"
+                        class="w-full bg-[#3a6cf4] hover:bg-blue-600 text-white py-3 rounded-lg font-semibold flex justify-center items-center gap-2">SUBMIT →
                     </button>
                 </form>
             </div>
         </div>
-</div>
+    </div>
 </main>
 <?php view('partials/footer.php') ?>

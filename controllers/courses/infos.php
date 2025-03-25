@@ -1,7 +1,8 @@
 <?php
+use Core\App;
+use Core\Database;
 
-$config = require base_path('config.php');
-$db = new Core\Database($config['database']);
+$db = App::resolve(Database::class);
 
 $infos= $db->query('SELECT title, students, duration, rating, reviews, price,image_url, inst_name,inst_field, c_description  FROM courses WHERE id = :id', ['id' => $_GET['id']])->findOrFail();
 

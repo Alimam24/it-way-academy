@@ -1,10 +1,11 @@
 <?php
 
+use Core\App;
+use Core\Database;
 
-$config = require base_path('config.php');
-$db = new Core\Database($config['database']);
+$db = App::resolve(Database::class);
 
-$search = isset($_GET['search']) ? $_GET['search'] : ''; 
+$search = isset($_GET['search']) ? $_GET['search'] : '';
 $sortOption = isset($_GET['sort']) ? $_GET['sort'] : 'title';
 $orderBy = 'title ASC';
 
@@ -20,7 +21,6 @@ switch ($sortOption) {
         break;
 }
 
-$courses=$db->query("SELECT * FROM courses WHERE title LIKE '%$search%' ORDER BY $orderBy")->get();
+$courses = $db->query("SELECT * FROM courses WHERE title LIKE '%$search%' ORDER BY $orderBy")->get();
 
-viewarr('courses/index.view.php',$courses);
-
+view('courses/index.view.php', ['courses' => $courses]);

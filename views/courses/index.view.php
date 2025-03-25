@@ -21,7 +21,7 @@
 
 
 <div class="course-container">
-  <?php foreach ($data as $course): ?>
+  <?php foreach ($courses as $course): ?>
     <a href="/courses/infos?id=<?= $course['id'] ?>" class="course-card">
 
       <img src="/img/courses_img/<?= $course['image_url'] ?>" alt="Course Image" class="course-image">
@@ -39,8 +39,7 @@
     </a>
   <?PHP endforeach ?>
 </div>
-
-<?php if (empty($data)): ?>
+<?php if (empty($courses)): ?>
   <div class="no-courses-card">
     <div class="icon">⚠️</div>
     <h2>No Courses Found</h2>

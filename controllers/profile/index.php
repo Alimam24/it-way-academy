@@ -1,23 +1,25 @@
 <?php
 
-use Core\Database;
-use Core\Response;
 
-$config = require base_path('config.php');
-$db = new Database($config['database']);
+use Core\Response;
+use Core\App;
+use Core\Database;
+
+$db = App::resolve(Database::class);
+
+$email=$_SESSION['user']['email'];
 
 $infos = $db->query(
-    'SELECT id,firstname, lastname, email,phone,birthdate,avatar FROM user WHERE firstname = :first && lastname= :last',
+    'SELECT id,firstname, lastname, email,phone,birthdate,avatar FROM users WHERE email=:email',
 
     [
-        'first' => $_GET['first'],
-        'last' => $_GET['last']
+        'email'=> $email
     ]
 )->findOrFail();
 
-$currentUserId = 1;
 
-if ($infos['id'] != $currentUserId) abort(Response::FORBIDDEN);
+
+if ($infos['email'] != $email) abort(Response::FORBIDDEN);
 
 else
     view('profile/index.view.php',$infos);

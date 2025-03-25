@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
-*{
+* {
     font-family: "Poppins", sans-serif;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
@@ -12,22 +12,27 @@ header {
     background-color: aliceblue;
     width: 100%;
     position: fixed;
-    top: 0; /* Ensures it stays at the top */
-    z-index: 9999; /* Increase the z-index */
+    top: 0;
+    /* Ensures it stays at the top */
+    z-index: 9999;
+    /* Increase the z-index */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.3em 11em;
     background: url("../img/img.jpg");
 }
+
 header * {
-    margin: 0; 
+    margin: 0;
 }
+
 header.scrolled {
-    background:aliceblue;
+    background: aliceblue;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background 0.3s ease, box-shadow 0.3s ease;
 }
+
 .logo {
     display: flex;
     align-items: center;
@@ -36,27 +41,27 @@ header.scrolled {
     font-weight: 600;
     text-decoration: none;
     transition: transform 0.3s ease;
-  }
+}
 
-  .logo:hover {
+.logo:hover {
     transform: scale(1.05);
-  }
+}
 
-  .logo .bracket {
+.logo .bracket {
     color: #60A5FA;
     margin: 0 2px;
-  }
+}
 
-  .logo .text {
+.logo .text {
     margin: 0 2px;
-  }
-  .logo.scrolled
-  {
-    color: #3a6cf4;
-  }
+}
 
-#navigation a{
-    color:#3a6cf4;
+.logo.scrolled {
+    color: #3a6cf4;
+}
+
+#navigation a {
+    color: #3a6cf4;
     text-decoration: none;
     margin-left: 1.1em;
     font-size: 1.2em;
@@ -65,13 +70,13 @@ header.scrolled {
 
 }
 
-#navigation a:hover{
-    color:aliceblue
-
+#navigation a:hover {
+    color: aliceblue
 }
+
 header.scrolled #navigation a:hover {
-    color:blueviolet;
-} 
+    color: blueviolet;
+}
 
 
 .container {
@@ -79,7 +84,7 @@ header.scrolled #navigation a:hover {
     flex-direction: column;
     align-items: center;
     padding-top: 8em;
-    padding-bottom: 6em; 
+    padding-bottom: 6em;
 }
 
 .profile-card {
@@ -91,7 +96,7 @@ header.scrolled #navigation a:hover {
     width: 900px;
     max-width: 95%;
 
- 
+
 }
 
 .left-section {
@@ -101,6 +106,14 @@ header.scrolled #navigation a:hover {
     text-align: center;
     flex: 1;
     position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center items horizontally */
+    justify-content: center;
+    /* Center items vertically */
+
 }
 
 .left-section .profile-pic {
@@ -142,7 +155,7 @@ header.scrolled #navigation a:hover {
     border: none;
     padding: 0;
     cursor: pointer;
-    
+
 
 }
 

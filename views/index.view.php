@@ -8,7 +8,7 @@
     <section id="main">
       <h2>Welcome to IT Way Academy<br><br><span>Your Gateway to Online IT Mastery</span></h2>
       <h3>"Empower your future with expert-led courses designed to elevate your skills."</h3><br><br><br>
-      <a href="profile/?first=walid&last=alimam">
+      <a href="/courses">
           <btn class="course-btn">Explore Our Courses</btn>
       </a><br><br>
       <div id="icons">

@@ -46,4 +46,13 @@ return [
             'href' => "/"
         ]
     ],
+    'Registered' => [
+        'icon' => '&#127881;', // 🎉 Celebration emoji
+        'msg' => 'Registration Successful',
+        'exp' => 'Welcome! Your account has been created successfully. You can now start learning.',
+        'action' => [
+            'text' => 'Go to Homepage',
+            'href' => "/"
+        ]
+    ],
 ];

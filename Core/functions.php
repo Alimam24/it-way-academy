@@ -9,7 +9,8 @@ function dd($value)
     die();
 }
 
-function urlIs($value) {
+function urlIs($value)
+{
     return $_SERVER['REQUEST_URI'] === $value;
 }
 
@@ -23,7 +24,8 @@ function abort($code = 404)
 }
 
 
-function authorize($condition, $status = Core\Response::FORBIDDEN) {
+function authorize($condition, $status = Core\Response::FORBIDDEN)
+{
     if (! $condition) {
         abort($status);
     }
@@ -41,14 +43,26 @@ function view($path, $attributes = [])
     require base_path('views/' . $path);
 }
 
-function viewarr($path, $attributes = [])
-{
-    $data=$attributes;
-    require base_path('views/' . $path);
-}
-
 function style($path)
 {
-    return  "/styles/". $path;
+    return  "/styles/" . $path;
 }
 
+
+function login($user)
+{
+    $_SESSION['user'] = [
+        'email' => $user['email']
+    ];
+
+    session_regenerate_id(true);
+}
+
+function logout()
+{
+    $_SESSION = [];
+    session_destroy();
+
+    $params = session_get_cookie_params();
+    setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+}

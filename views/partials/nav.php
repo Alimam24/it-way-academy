@@ -1,4 +1,4 @@
-<link rel="stylesheet" href=<?=style('headFN.css')?>>
+<link rel="stylesheet" href=<?= style('headFN.css') ?>>
 <div class="base">
     <header>
         <a href="/" class="logo">
@@ -8,12 +8,31 @@
             <span class="bracket">&gt;</span>
             <span class="text">T</span>
         </a>
+        <!-- view('partials/logo.php')?> -->
         <nav id="navigation">
-            <a href="login-register.php">LOGIN</a>
+            <a href="/register">BLOG</a>
             <a href="/courses">COURSES</a>
             <a href="about.html" target="_blank">ABOUT</a>
             <a href="/contact">CONTACT</a>
         </nav>
+        <?php if ($_SESSION['user'] ?? false): ?>
+            <div class="user-actions">
+                <div class="user-avatar">
+                    <a href="/profile"><img src="/img/profile.png" alt="User Avatar" width="45px"></a>
+                </div>
+                <form method="POST" action="/session">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="logout-btn">Logout</button>
+                </form>
+            </div>
+        <?php else: ?>
+            <div>
+                <a href="/login" class="register-btn">LOGIN</a>
+                <a href="/register" class="register-btn">REGISTER HERE!!</a>
+            </div>
+        <?PHP endif; ?>
+
+
     </header>
 </div>
 <script>
@@ -31,3 +50,4 @@
         });
     });
 </script>
+<a href="/register" class="register-btn">REGISTER HERE!!</a>

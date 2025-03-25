@@ -15,4 +15,8 @@ class Validator
     {
         return filter_var($value, FILTER_VALIDATE_EMAIL);
     }
+    public static function password($value)
+    {
+        return Validator::string($value,8,255) >=8 && !ctype_lower($value) && !ctype_alpha($value) !=''; 
+    }
 }

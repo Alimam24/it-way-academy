@@ -89,6 +89,79 @@ header.scrolled #navigation a:hover {
 
 
 
+.user-avatar {
+    margin-left: 1.5em;
+    /* Space between last link & avatar */
+}
+
+.user-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #3a6cf4;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.user-avatar img:hover {
+    transform: scale(1.1);
+    border-color: aliceblue;
+}
+
+header.scrolled .user-avatar img:hover {
+    transform: scale(1.1);
+    border-color: blueviolet;
+}
+
+
+.register-btn {
+    background-color: #3a6cf4;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.register-btn:hover {
+    background-color: blueviolet;
+    transform: scale(1.05);
+}
+
+/* Align avatar and logout button */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Adjust spacing */
+}
+
+
+.logout-btn {
+    background-color: #ef4444;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px; 
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+
+.logout-btn:hover {
+    background-color: #dc2626; 
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3); 
+}
+
+/* Remove default form styling */
+.user-actions form {
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+
 
 /* footer */
 .footer {

@@ -1,21 +1,27 @@
 <?php
 
+use Core\App;
 use Core\Database;
- 
-$config = require base_path('config.php');
-$db = new Database($config['database']);
 
-$currentUserId = 1;
+$db = App::resolve(Database::class);
 
-$profile = $db->query('select * from user where id = :id', [
-    'id' => $_POST['id'] 
-])->findOrFail();
+$email=$_SESSION['user']['email'];
 
-authorize($profile['id'] === $currentUserId);
+$profile = $db->query('select * from users WHERE email=:email',
 
-$db->query('delete from user where id = :id', [
-    'id' => $_POST['id'] 
-]);
+    [
+        'email'=> $email
+    ]
+)->findOrFail();
+
+authorize($profile['email'] === $email);
+
+$db->query('delete from users WHERE email=:email',
+
+    [
+        'email'=> $email
+    ]
+)->findOrFail();
 
 header("Location: /");
 
