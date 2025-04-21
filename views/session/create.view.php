@@ -22,7 +22,7 @@
                     <input 
                     type="email" 
                     name="email" 
-                    value='<?=$_POST['email']?? ''?>'
+                    value="<?= old('email') ?>"
                     class="w-full p-2 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-[#60A5FA]" >
                 </div>
                 <div class="mb-4">
@@ -31,7 +31,6 @@
                     type="password" 
                     id="password"
                     name="password"
-                    value='<?=$_POST['password']?? ''?>'
                     class="w-full p-2 rounded bg-gray-700 focus:outline-none focus:ring-2 focus:ring-[#60A5FA]" >
                 </div>
                 <?php if (isset($errors)) : ?>

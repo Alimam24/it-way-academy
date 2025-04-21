@@ -1,221 +1,133 @@
-<!DOCTYPE html>
-<html lang="en">
+<div class="bg-white shadow-2xl rounded-3xl p-10 w-full max-w-2xl">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="views/styles/update-info.css">
-    <title>IT Way Courses</title>
-</head>
-
-
-<body>
-    <div class="wrapper">
-        <nav class="nav">
-            <a href="index.html" class="logo">
-                <span class="text">I</span>
-                <span class="bracket">&lt;</span>
-                <span class="text">WAY COURSES</span>
-                <span class="bracket">&gt;</span>
-                <span class="text">T</span>
-              </a>
-        </nav>
-        <!------------------- Registration form ------------------->
-        <div class="form-box">
-            <div class="register-container" id="register">
-                <form action="php/update-handler.php" method="post" enctype="multipart/form-data">
-                    <div class="top">
-                        <header>Update your informations</header>
-                    </div>
-                    <div class="two-forms">
-                        <div class="input-box">
-                            <input type="text" class="input-field" placeholder="Firstname" name="Firstname">
-                            <i class="bx bx-user"></i>
-                        </div>
-                        <div class="input-box">
-                            <input type="text" class="input-field" placeholder="Lastname" name="Lastname">
-                            <i class="bx bx-user"></i>
-                        </div>
-                    </div>
-                    <div class="input-box">
-                        <input type="text" class="input-field" placeholder="Email" name="Email">
-                        <i class="bx bx-envelope"></i>
-                    </div>
-                    <div class="input-box">
-                        <input type="password" class="input-field" placeholder="Password" name="Password">
-                        <i class="bx bx-lock-alt"></i>
-                    </div>
-                    <div class="input-box">
-                        <input type="date" class="input-field" name="Birthdate">
-                        <i class="bx bx-calendar"></i>
-                    </div>
-                    <div class="input-box">
-                        <input type="text" class="input-field" placeholder="Phone Number" name="PhoneNumber">
-                        <i class="bx bx-phone"></i>
-                    </div>
-                    <div class="input-box">
-                        <input type="file" class="input-field" name="ProfilePhoto" accept="image/*">
-                        <i class="bx bx-camera"></i>
-                    </div>
-                    <div class="input-box">
-                        <input type="submit" class="submit" value="update">
-                    </div>
-                </form>
-            </div>
-        </div>
+    <div class="text-center mb-8">
+        <h2 class="text-3xl font-extrabold text-gray-800">Update Your Profile</h2>
+        <p class="text-sm text-gray-500">Keep your info fresh & relevant!</p>
     </div>
 
-</body>
-<style>
-    /* POPPINS FONT */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-    }
+    <form method="POST" enctype="multipart/form-data" class="space-y-6">
 
-    body {
-        background: url("img/img.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        overflow: hidden;
-    }
 
-    .wrapper {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background: rgba(39, 39, 39, 0.4);
-    }
+        <input type="hidden" name="_method" value="PATCH">
+        <input type="hidden" name="id" value="<?= $_POST['id'] ?? '' ?>">
 
-    .nav {
-        position: fixed;
-        top: 0;
-        display: flex;
-        justify-content: left;
-        padding: 0px 30px;
-        width: 100%;
-        height: 100px;
-        line-height: 100px;
-        background: linear-gradient(rgba(39, 39, 39, 0.6), transparent);
-        z-index: 100;
-    }
+        <!-- Avatar Upload -->
+        <div class="flex flex-col items-center">
+            <div class="relative w-28 h-28 mb-3">
+                <!-- Image element that will show the selected image or the existing one -->
+                <img
+                    id="avatarPreview"
+                    src="/img/avatars/<?= $infos['avatar'] ?>"
+                    alt="Avatar"
+                    class="w-full h-full object-cover rounded-full border-4 border-blue-200 shadow">
 
-    .nav a {
-        text-decoration: none;
-    }
+                <!-- File input for avatar selection -->
+                <input
+                    type="file"
+                    name="avatar"
+                    accept="image/*"
+                    class="absolute inset-0 opacity-0 cursor-pointer"
+                    onchange="previewAvatar(event)">
+            </div>
+            <p class="text-sm text-gray-500">Click the photo to change avatar</p>
+            <input type="hidden" name="existing_avatar" value="<?= $infos['avatar'] ?>">
+        </div>
 
-    .nav-logo p {
-        color: white;
-        font-size: 25px;
-        font-weight: 600;
-    }
+        <!-- First Name -->
+        <div>
+            <label for="firstname" class="block text-sm font-medium text-gray-700">First Name</label>
+            <input
+                type="text"
+                name="firstname"
+                value="<?= old('firstname') ?: $infos['firstname'] ?>"
+                class="mt-1 block w-full rounded-xl border border-gray-300 p-3 shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none">
+        </div>
 
-    .form-box {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 512px;
-        height: auto;
-        overflow: hidden;
-        z-index: 2;
-    }
+        <!-- Last Name -->
+        <div>
+            <label for="lastname" class="block text-sm font-medium text-gray-700">Last Name</label>
+            <input
+                type="text"
+                name="lastname"
+                value="<?= old('lastname') ?: $infos['lastname'] ?>"
+                class="mt-1 block w-full rounded-xl border border-gray-300 p-3 shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none">
+        </div>
 
-    .register-container {
-        display: flex;
-        flex-direction: column;
-        width: 500px;
-    }
+        <!-- Email -->
+        <div>
+            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+            <input
+                type="email"
+                name="email"
+                value="<?= old('email') ?: $infos['email']  ?>"
+                class="mt-1 block w-full rounded-xl border border-gray-300 p-3 shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none">
+        </div>
 
-    header {
-        color: #fff;
-        font-size: 30px;
-        text-align: center;
-        padding: 10px 0 30px 0;
-    }
+        <!-- Password -->
+        <!-- <div>
+            <label for="password" class="block text-sm font-medium text-gray-700">New Password</label>
+            <input
+                type="password"
+                name="password"
+                value=""
+                class="mt-1 block w-full rounded-xl border border-gray-300 p-3 shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none">
+        </div> -->
 
-    .two-forms {
-        display: flex;
-        gap: 20px;
-    }
+        <!-- Birthday -->
+        <div>
+            <label for="birthdate" class="block text-sm font-medium text-gray-700">Birthday</label>
+            <input
+                type="date"
+                name="birthdate"
+                value="<?= old('birthdate') ?: $infos['birthdate'] ?>"
+                class="mt-1 block w-full rounded-xl border border-gray-300 p-3 shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none">
+        </div>
 
-    .input-field {
-        font-size: 15px;
-        background: rgba(255, 255, 255, 0.2);
-        color: #fff;
-        height: 50px;
-        width: 100%;
-        padding: 0 10px 0 45px;
-        border: none;
-        border-radius: 30px;
-        outline: none;
-        transition: .2s ease;
-    }
+        <!-- Phone Number -->
+        <div>
+            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+            <input
+                type="tel"
+                name="phone"
+                value="<?= old('phone') ?: $infos['phone'] ?>"
+                class="mt-1 block w-full rounded-xl border border-gray-300 p-3 shadow-sm focus:ring-2 focus:ring-blue-400 focus:outline-none">
+        </div>
 
-    .input-field:hover,
-    .input-field:focus {
-        background: rgba(255, 255, 255, 0.25);
-    }
+        <!-- Error Messages -->
+        <?php if (isset($errors)) : ?>
+            <div class="text-red-500 text-sm">
+                <?php foreach ($errors as $error): ?>
+                    <p>* <?= htmlspecialchars($error) ?></p>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
 
-    ::-webkit-input-placeholder {
-        color: #fff;
-    }
+        <!-- Submit -->
+        <div>
+            <button type="submit" class="w-full bg-[#3a6cf4] hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition-all">
+                Save Changes
+            </button>
+        </div>
+    </form>
+</div>
 
-    .input-box i {
-        position: relative;
-        top: -35px;
-        left: 17px;
-        color: #fff;
-    }
 
-    .submit {
-        font-size: 15px;
-        font-weight: 500;
-        color: black;
-        height: 45px;
-        width: 100%;
-        border: none;
-        border-radius: 30px;
-        outline: none;
-        background: rgba(255, 255, 255, 0.7);
-        cursor: pointer;
-        transition: .3s ease-in-out;
-    }
+<script>
+    // Function to preview the selected avatar image
+    function previewAvatar(event) {
+        const file = event.target.files[0];
+        if (file) {
+            // Create a FileReader to read the selected image
+            const reader = new FileReader();
 
-    .submit:hover {
-        background: rgba(255, 255, 255, 0.5);
-        box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
-    }
+            // When the file is loaded, update the image source
+            reader.onload = function(e) {
+                // Get the img element and set its src attribute to the loaded file
+                document.getElementById('avatarPreview').src = e.target.result;
+            };
 
-    @media only screen and (max-width: 540px) {
-        .wrapper {
-            min-height: 100vh;
-        }
-
-        .form-box {
-            width: 100%;
-        }
-
-        .register-container {
-            width: 100%;
-            padding: 0 20px;
-        }
-
-        .register-container .two-forms {
-            flex-direction: column;
-            gap: 0;
+            // Read the selected file as a data URL (base64 encoded)
+            reader.readAsDataURL(file);
         }
     }
-</style>
-
-</html>
-
-
-
+</script>

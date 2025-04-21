@@ -21,7 +21,7 @@
             <p><?= $c_description ?></p>
 
             <div class="instructor">
-                <img src="/img/profile.png" alt="Instructor Photo">
+                <img src="/img/avatars/profile.png" alt="Instructor Photo">
                 <div class="instructor-details">
                     <p><strong>Instructor:</strong><?= $inst_name ?></p>
                     <p><?=  $inst_field ?></p>

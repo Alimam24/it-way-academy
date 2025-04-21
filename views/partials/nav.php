@@ -12,13 +12,13 @@
         <nav id="navigation">
             <a href="/register">BLOG</a>
             <a href="/courses">COURSES</a>
-            <a href="about.html" target="_blank">ABOUT</a>
+            <a href="/about">ABOUT</a>
             <a href="/contact">CONTACT</a>
         </nav>
         <?php if ($_SESSION['user'] ?? false): ?>
             <div class="user-actions">
                 <div class="user-avatar">
-                    <a href="/profile"><img src="/img/profile.png" alt="User Avatar" width="45px"></a>
+                    <a href="/profile"><img src="/img/avatars/profile.png" alt="User Avatar" width="45px"></a>
                 </div>
                 <form method="POST" action="/session">
                     <input type="hidden" name="_method" value="DELETE">
@@ -50,4 +50,3 @@
         });
     });
 </script>
-<a href="/register" class="register-btn">REGISTER HERE!!</a>

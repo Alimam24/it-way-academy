@@ -29,7 +29,7 @@
         </div>
         <div class="course-container">
             <a href="courses/infos?id=1" class="course-card">
-              <img src="courses_img/9.jpg" alt="Course Image" class="course-image">
+              <img src="img/courses_img/9.jpg" alt="Course Image" class="course-image">
               <div class="course-info">
                 <div class="course-meta">
                   <span class="students">👥 25 Students</span>
@@ -43,7 +43,7 @@
               </div>
             </a>
             <a href="php/viewcourse.php?id=2" class="course-card">
-                <img src="courses_img/5.jpg" alt="Course Image" class="course-image">
+                <img src="img/courses_img/5.jpg" alt="Course Image" class="course-image">
                 <div class="course-info">
                   <div class="course-meta">
                     <span class="students">👥 40  Students</span>
@@ -57,7 +57,7 @@
                 </div>
             </a>
               <a href="php/viewcourse.php?id=3" class="course-card">
-                <img src="courses_img/10.jpg" alt="Course Image" class="course-image">
+                <img src="img/courses_img/10.jpg" alt="Course Image" class="course-image">
                 <div class="course-info">
                   <div class="course-meta">
                     <span class="students">👥 35 Students</span>
